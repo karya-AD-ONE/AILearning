@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "id": "KA001",
+      "title": "How to Convert a Lead in Salesforce",
+      "category": "Lead Management",
+      "content": "To convert a lead in Salesforce, follow these steps: 1) Navigate to the Lead record you want to convert. 2) Click the 'Convert' button in the upper right corner. 3) In the conversion dialog, you can either select an existing Account or create a new one. 4) Choose whether to create a new Opportunity or not. 5) Select the Contact options - you can merge with existing or create new. 6) Click 'Convert' to complete the process. Important notes: Once a lead is converted, it cannot be unconverted. All activities and attachments are moved to the new Contact record. The original Lead record becomes read-only with a 'Converted' status. Best practice is to ensure all lead information is accurate before conversion."
+    },
+    {
+      "id": "KA002",
+      "title": "Understanding Opportunity Stages",
+      "category": "Sales Process",
+      "content": "Salesforce Opportunity Stages represent where a deal is in your sales process. Standard stages include: Prospecting (10%) - Initial contact made, qualifying the opportunity. Qualification (20%) - Confirmed budget, authority, need, and timeline (BANT). Needs Analysis (30%) - Understanding customer requirements in detail. Value Proposition (40%) - Presenting solution and differentiators. Proposal/Price Quote (60%) - Formal proposal submitted. Negotiation/Review (80%) - Working through terms and conditions. Closed Won (100%) - Deal signed, revenue recognized. Closed Lost (0%) - Opportunity did not result in a sale. The percentages represent probability of closing. You can customize stages in Setup > Object Manager > Opportunity > Fields > Stage. Each stage should have clear entry and exit criteria defined in your sales process documentation."
+    },
+    {
+      "id": "KA003",
+      "title": "Creating Reports in Salesforce",
+      "category": "Analytics",
+      "content": "To create a report in Salesforce: 1) Click the Reports tab. 2) Click 'New Report'. 3) Select a Report Type - this determines which objects and fields are available. Common types include Accounts, Opportunities, Leads, Cases. 4) Choose fields to display by dragging from the left panel. 5) Add filters to narrow down data - you can filter by date, owner, status, etc. 6) Group data using the 'Group Rows' option for summary reports. 7) Add chart visualization if needed. 8) Save the report to a folder. Report Types: Tabular - simple list of records. Summary - grouped data with subtotals. Matrix - grouped by rows AND columns. Joined - combine multiple report types. Best practice: Always add a date filter to improve performance. Use report folders to organize and control access."
+    },
+    {
+      "id": "KA004",
+      "title": "Salesforce Automation: Flow vs Process Builder vs Workflow",
+      "category": "Automation",
+      "content": "Salesforce offers several automation tools: WORKFLOW RULES (Legacy): Simple if-then automation. Actions: Field updates, email alerts, tasks, outbound messages. Limited to single object, no complex logic. Being retired - migrate to Flow. PROCESS BUILDER (Legacy): Visual automation builder. Multiple criteria and actions. Can update related records. Also being retired - migrate to Flow. FLOW (Current Standard): Most powerful automation tool. Types include: Screen Flows (user interaction), Record-Triggered Flows (automation), Scheduled Flows (batch processing), Autolaunched Flows (called from other processes). Supports loops, decisions, complex logic. Can interact with external systems. RECOMMENDATION: Use Flow for all new automation. Migrate existing Workflow Rules and Process Builders to Flow. Flow provides the most flexibility and is Salesforce's strategic direction for automation."
+    },
+    {
+      "id": "KA005",
+      "title": "Data Security in Salesforce",
+      "category": "Security",
+      "content": "Salesforce security operates at multiple levels: ORGANIZATION LEVEL: Login hours, IP restrictions, password policies, session settings. Controlled in Setup > Security. OBJECT LEVEL: Controlled by Profiles and Permission Sets. CRUD permissions (Create, Read, Update, Delete) per object. Tab visibility settings. FIELD LEVEL SECURITY: Controls visibility and editability of individual fields. Set via Profiles or Permission Sets. Hidden fields return null in API queries. RECORD LEVEL: Organization-Wide Defaults (OWD) set baseline access - Private, Public Read Only, Public Read/Write. Role Hierarchy allows managers to see subordinates' records. Sharing Rules extend access to groups or roles. Manual Sharing for one-off record access. Apex Managed Sharing for programmatic control. Best Practice: Start with most restrictive settings (Private OWD), then open up access as needed using sharing rules. Never give more access than necessary."
+    },
+    {
+      "id": "KA006",
+      "title": "Apex Trigger Best Practices",
+      "category": "Development",
+      "content": "Follow these Apex trigger best practices: 1) ONE TRIGGER PER OBJECT: Create a single trigger that calls a handler class. This prevents execution order issues. Example: trigger AccountTrigger on Account (before insert, after insert, before update, after update) { AccountTriggerHandler.handle(Trigger.new, Trigger.oldMap, Trigger.operationType); } 2) BULKIFY YOUR CODE: Never use SOQL or DML inside loops. Process all records in Trigger.new as a collection. Use Maps for efficient lookups. 3) AVOID RECURSION: Use static boolean to prevent recursive trigger execution. 4) CONTEXT VARIABLES: Use Trigger.isBefore, Trigger.isAfter, Trigger.isInsert, etc. to control logic flow. 5) GOVERNOR LIMITS: 100 SOQL queries per transaction, 150 DML statements, 6MB heap size. Design with limits in mind. 6) TEST COVERAGE: Write tests that cover bulk scenarios (200+ records). Test all trigger contexts. Minimum 75% coverage required for deployment."
+    },
+    {
+      "id": "KA007",
+      "title": "Managing Cases in Service Cloud",
+      "category": "Service",
+      "content": "Cases in Salesforce Service Cloud represent customer issues or inquiries. KEY FIELDS: Status (New, Working, Escalated, Closed), Priority (Low, Medium, High, Critical), Origin (Email, Phone, Web), Contact and Account relationships. CASE ASSIGNMENT RULES: Automatically route cases to queues or users based on criteria. Setup > Case Assignment Rules. Common criteria: Origin, Priority, Account attributes. ESCALATION RULES: Automatically escalate cases that aren't resolved in time. Can notify managers, reassign, or update fields. CASE TEAMS: Add multiple users to work on a case with different roles. EMAIL-TO-CASE: Create cases from incoming emails automatically. Supports multiple routing addresses. WEB-TO-CASE: Create cases from web forms on your website. ENTITLEMENTS: Define service levels and support contracts. Track response and resolution times against SLAs. BEST PRACTICES: Use queues for team-based case ownership. Set up auto-response rules for immediate customer acknowledgment. Create email templates for consistent communication."
+    },
+    {
+      "id": "KA008",
+      "title": "Salesforce Integration Patterns",
+      "category": "Integration",
+      "content": "Common Salesforce integration patterns: REST API: Modern, lightweight, supports JSON/XML. Best for mobile apps, simple integrations. Endpoints: /services/data/vXX.0/sobjects/. SOAP API: Enterprise-grade, strongly typed. Better for complex operations, .NET integration. Uses WSDL for type definitions. BULK API: For large data volumes (millions of records). Asynchronous processing in batches. Use for data migration, large updates. STREAMING API: Real-time notifications using push technology. PushTopic for record changes, Platform Events for custom events. Change Data Capture for detailed change tracking. CONNECT API (CHATTER): Social features, feeds, files, recommendations. METADATA API: Deploy configuration changes, retrieve org metadata. TOOLING API: Development tools, code deployment, debugging. AUTHENTICATION: OAuth 2.0 for external apps. Connected Apps for API access. Named Credentials for secure callout storage. BEST PRACTICES: Use Named Credentials for storing endpoints and auth. Implement retry logic for failed callouts. Handle governor limits (100 callouts per transaction). Use Platform Events for reliable async processing."
+    },
+    {
+      "id": "KA009",
+      "title": "Lightning Web Components Overview",
+      "category": "Development",
+      "content": "Lightning Web Components (LWC) is Salesforce's modern UI framework. BENEFITS: Uses web standards (HTML, JavaScript, CSS). Better performance than Aura components. Easier to learn for web developers. Interoperable with Aura components. STRUCTURE: HTML Template - defines markup using lwc:if, for:each directives. JavaScript Controller - handles logic, wire adapters, lifecycle hooks. CSS - component-scoped styles. XML Configuration - metadata for deployment and visibility. KEY CONCEPTS: @api - public properties/methods exposed to parent components. @track - reactive private properties (auto in recent versions). @wire - reactive data fetching from Apex or Lightning Data Service. Lifecycle hooks: connectedCallback(), renderedCallback(), disconnectedCallback(). DATA ACCESS: Lightning Data Service (LDS) for standard CRUD without Apex. @wire with Apex methods for custom queries. Imperative Apex calls for user-triggered actions. EVENTS: Custom events for child-to-parent communication. Lightning Message Service for cross-component communication. BEST PRACTICES: Use LDS when possible to leverage caching. Keep components small and focused. Use base Lightning components for consistent UI."
+    },
+    {
+      "id": "KA010",
+      "title": "Salesforce CPQ Basics",
+      "category": "CPQ",
+      "content": "Salesforce CPQ (Configure, Price, Quote) streamlines the quote-to-cash process. CORE OBJECTS: Quote - the main record containing quote lines and totals. Quote Line - individual products/services on the quote. Product - items that can be added to quotes. Price Book - collection of products with prices. CONFIGURATION: Product Rules control what can be sold together. Option Constraints enforce valid configurations. Configuration Attributes drive product options. PRICING: List Price from Price Books. Discount Schedules for volume-based pricing. Price Rules for dynamic pricing logic. Contracted Pricing for customer-specific prices. Block Pricing for tiered pricing models. QUOTING PROCESS: 1) Create Quote from Opportunity. 2) Add Products using Product Selector. 3) Configure options and quantities. 4) Apply discounts if needed. 5) Generate Quote Document (PDF). 6) Send to customer for approval. ADVANCED FEATURES: Multi-Dimensional Quoting (MDQ) for subscription products. Quote Line Groups for organizing line items. Guided Selling for needs-based product selection. INTEGRATION: Syncs with Opportunities and Contracts. Connects to billing systems for invoicing."
+    }
+  ]
+}

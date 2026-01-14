@@ -1,0 +1,19 @@
+{
+  "name": "01-salesforce-rag",
+  "version": "1.0.0",
+  "description": "A complete RAG (Retrieval Augmented Generation) system that: 1. Stores Salesforce knowledge articles in a vector database 2. Searches semantically (by meaning, not just keywords) 3. Answers questions using retrieved context + Claude 4. Can be integrated into your existing API server",
+  "main": "express_integration.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
