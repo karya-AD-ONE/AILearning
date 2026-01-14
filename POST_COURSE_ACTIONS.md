@@ -1,8 +1,18 @@
 # 📋 POST-COURSE ACTION ITEMS
 
+## Status Summary
+
+| Item | Status |
+|------|--------|
+| Basic Course | ✅ Complete |
+| Printable Document | ⏳ Pending |
+| Advanced Hands-On | 🔄 Starting |
+
+---
+
 ## Action Item #1: Create Printable Course Document
 
-**When:** After all modules are complete  
+**When:** After advanced hands-on complete (or when requested)  
 **What:** Compile all reading content into a single PDF/Word document for physical reference
 
 ### Content to Include:
@@ -16,12 +26,7 @@
 6. `03-rag-systems/01_rag_fundamentals.py`
 7. `04-agentic-ai/01_agent_fundamentals.py`
 
-**Optional Advanced Modules (If Created):**
-- LangChain Basics
-- Advanced RAG Techniques
-- Multi-Agent Systems (CrewAI)
-- MCP Deep Dive
-- LangGraph Workflows
+**Interview Questions from Each Module**
 
 ### Document Structure:
 ```
@@ -37,19 +42,39 @@ AI Engineering Course - Complete Reference Guide
 └── Appendix C: Project Documentation
 ```
 
-### Format Options:
-- [ ] PDF (recommended for printing)
-- [ ] Word Document (if editing needed)
-- [ ] Both
-
-### Notes:
-- Remove code execution outputs, keep explanations
-- Include all diagrams (ASCII art → proper diagrams)
-- Add page numbers and table of contents
-- Include interview questions from each module as appendix
+**Status:** ⏳ Pending  
+**Trigger:** Say "Create printable document" in any chat
 
 ---
 
-**Status:** ⏳ Pending (waiting for course completion)  
-**Created:** December 2024  
-**Action by:** Claude + Arsh post-course
+## Action Item #2: Advanced Hands-On Learning
+
+**Plan Document:** `ADVANCED_HANDS_ON_PLAN.md`
+
+### Phases:
+- [ ] A - Code Walkthrough (understand project structure)
+- [ ] B - Build from Scratch (write RAG yourself)
+- [ ] C - Modification Exercises (add tools, change configs)
+- [ ] D - Debugging Practice (find and fix bugs)
+- [ ] E - Combination Track (A+B+C+D)
+- [ ] F - Advanced Complex Project (full platform from scratch)
+
+**Status:** 🔄 Starting Phase A
+
+---
+
+## Action Item #3: GitHub Commit
+
+**Commands:**
+```bash
+cd /Users/arshdave/Documents/VS\ Code\ Workspace/GitRepoCloned/AILearning/AILearning
+git add .
+git commit -m "Complete AI Engineering Course - RAG + Agents + Advanced Plan"
+git push
+```
+
+**Status:** ⬜ Pending
+
+---
+
+*Last Updated: January 2025*
